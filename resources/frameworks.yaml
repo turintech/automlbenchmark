@@ -83,6 +83,10 @@ autoxgboost:
   project: https://github.com/ja-thomas/autoxgboost
   refs: [https://arxiv.org/abs/1807.03873v2]
 
+evoml:
+  version: 'latest'
+  description: evoml client
+
 flaml:
   version: 'stable'
   description: |

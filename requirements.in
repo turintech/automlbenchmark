@@ -1,3 +1,4 @@
+Cython
 boto3>=1.9,<2.0
 liac-arff>=2.5,<3.0
 numpy>=1.20,<2.0

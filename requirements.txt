@@ -32,7 +32,8 @@ minio==7.0.3
     # via openml
 numexpr==2.7.3
     # via tables
-numpy==1.20.3
+# numpy==1.20.3
+numpy
     # via
     #   -r requirements.in
     #   numexpr
@@ -44,13 +45,15 @@ numpy==1.20.3
     #   tables
 openml==0.12.2
     # via -r requirements.in
-pandas==1.2.4
+# pandas==1.2.4
+pandas
     # via
     #   -r requirements.in
     #   openml
 psutil==5.8.0
     # via -r requirements.in
-pyarrow==4.0.0
+# pyarrow==4.0.0
+pyarrow
     # via
     #   -r requirements.in
     #   openml

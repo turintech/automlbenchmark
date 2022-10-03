@@ -152,10 +152,14 @@ def live_output_unix(process, input=None, timeout=None, activity_timeout=None, m
                     print(line, end='')
                 reads[i] = line
         return reads if len(pipes) > 1 else reads[0]
-
-    output, error = zip(*iter(lambda: read_pipe([process.stdout if process.stdout else 1,
-                                                 process.stderr if process.stderr else 2], activity_timeout),
-                              ['', '']))
+    output = []
+    error = []
+    try:
+        output, error = zip(*iter(lambda: read_pipe([process.stdout if process.stdout else 1,
+                                                     process.stderr if process.stderr else 2], activity_timeout),
+                                  ['', '']))
+    except:
+        pass
     print()  # ensure that the log buffer is flushed at the end
     return ''.join(output), ''.join(error)
 
