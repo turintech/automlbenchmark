@@ -135,7 +135,7 @@ class Encoder(TransformerMixin):
     Should never have written this, but does the job currently. However, should think about simpler single-purpose approach.
     """
 
-    def __init__(self, type='label', target=True, encoded_type=int,
+    def __init__(self, type='label', target=True, encoded_type=str,
                  missing_policy='ignore', missing_values=None, missing_replaced_by='',
                  normalize_fn=None):
         """
@@ -255,6 +255,11 @@ class Encoder(TransformerMixin):
             return vec
 
         # TODO: handle mask
+        if self.encoded_type == int:
+            try:
+                vec = [float(v) for v in vec]
+            except:
+                pass
         vec = np.asarray(vec).astype(self.encoded_type, copy=False)
         return self.delegate.inverse_transform(vec, **params)
 
